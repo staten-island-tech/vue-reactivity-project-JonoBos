@@ -2,13 +2,11 @@
   <div>
     <h1>Coding Hangman</h1>
     <h2>Choose the Number of letters</h2>
-  <div id="display">{{ divContent }}</div>
+  <div id="display" >{{ divContent }}</div>
 
-    <button id = "choice4" >4 letters</button>
-    <button id = "choice5" >5 letters</button>
-    <button id = "choice6" >6 letters</button>
-    <button id = "choice7" >7 letters</button>
-    <button id = "choice8">8 letters</button>
+
+
+  <input type="text" id="lengthChoice" placeholder="Choose a word length 4-8">
 
     <button id ="clear" @click ="clearDiv">RESTART</button>
 
@@ -43,18 +41,24 @@ const words =[
 
 function display(words){
 
+const possibleChoice =[]
 
-
+//possibleChoice.push(word in words where word.Length = input.LengthChoice)
 
 //end
 const clearDiv = () => {
   divContent.value = ''; 
 };
 
+const lengthChoicex = () =>{
+  
+}
+
 }
 //hangman
-//make 5  buttons with functions to display either 4,5,6,7,8 length words
+//input for user to chhose 4-8 letter words
 //make a random index to choose one of the words
+Math.random
 // correlate the button to the length of choice
 //push the random word into another array
 //create user input
