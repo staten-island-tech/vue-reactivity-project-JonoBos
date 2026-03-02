@@ -5,48 +5,59 @@
 <div class ="container"></div>
 
 <div>This one halal</div>
+<img 
+  v-for="item in meats" 
+  :key="item.name"
+  :src="item.img"
+  :alt="item.name"
+  @click="orderAdd(item.name, item.price)"
+/>
 
-<h2>Meats</h2>
-<img @click ="orderAdd('Beef','11.99')" src="/beef.jpg" alt="">
-<img @click ="orderAdd('Lamb','11.99')" src="/lamb.jpg" alt="">
-<img @click ="orderAdd('Chicken','10.99')" src="/chicken.jpg" alt="">
-<img @click ="orderAdd('Mutton','10.99')" src="/mutton.jpg" alt="">
-<img @click ="orderAdd('Turkey','10.99')" src="/turkey.jpg" alt="">
 
-<h2>Salad</h2>
-<img @click ="orderAdd('Lettuce','1.50')" src="/lettuce.jpg" alt="">
-<img @click ="orderAdd('Onions','0.99')" src="/onions.jpg" alt="">
-<img @click ="orderAdd('Tomato','1.50')" src="/tomato.jpg" alt="">
-<img @click ="orderAdd('Pickle','0.99')" src="/pickle.jpg" alt="">
-<img @click ="orderAdd('Peppers','1.25')" src="/peppers.jpg" alt="">
-<img @click ="orderAdd('Cucumbers','0.99')" src="/cucumbers.jpg" alt="">
-
-<h2>Sauces</h2>
-
-<img @click ="orderAdd('Hot Sauce','0.50')" src="/hot.jpg" alt="">
-<img @click ="orderAdd('Tahini','0.50')" src="/tahini.jpg" alt="">
-<img @click ="orderAdd('Tzatziki','0.50')" src="/tzatziki.jpg" alt="">
-<img @click ="orderAdd('White Sauce','0.50')" src="/white.jpg" alt="">
-
-<h2>Sides</h2>
-<img @click ="orderAdd('Dolma','1.50')" src="/dolma.jpg" alt="">
-<img @click ="orderAdd('Falafel','1.99')" src="/falafel.jpg" alt="">
-<img @click ="orderAdd('Fries','2.99')" src="/fries.jpg" alt="">
-<img @click ="orderAdd('White Rice','4.99')" src="/white rice.webp" alt="">
-<img @click ="orderAdd('Yellow Rice','5.99')" src="/yellow rice.jpg" alt="">
-
-<h2>Drinks</h2>
-<img @click ="orderAdd('Coke','2.50')" src="/coke.jpg" alt="">
-<img @click ="orderAdd('Brisk','2.50')" src="/brisk.jpg" alt="">
-<img @click ="orderAdd('Dr.Pepper','2.50')" src="/dr.pepper.jpg" alt="">
-<img @click ="orderAdd('Fanta','2.50')" src="/fanta.jpg" alt="">
-<img @click ="orderAdd('Ginger Ale','2.50')" src="/ginger ale.jpg" alt="">
-<img @click ="orderAdd('Mug','2.50')" src="/mug.jpg" alt="">
-<img @click ="orderAdd('Sprite','2.50')" src="/sprite.jpg" alt="">
   </div>
 </template>
 
 <script setup>
+const meats = [
+        { name: 'Beef', price: 11.99, img: '/beef.jpg' },
+        { name: 'Lamb', price: 11.99, img: '/lamb.jpg' },
+        { name: 'Chicken', price: 10.99, img: '/chicken.jpg' },
+        { name: 'Mutton', price: 10.99, img: '/mutton.jpg' },
+        { name: 'Turkey', price: 10.99, img: '/turkey.jpg' }
+      ]
+const salads = [
+        { name: 'Lettuce', price: 1.50, img: '/lettuce.jpg' },
+        { name: 'Onions', price: 0.99, img: '/onions.jpg' },
+        { name: 'Tomato', price: 1.50, img: '/tomato.jpg' },
+        { name: 'Pickle', price: 0.99, img: '/pickle.jpg' },
+        { name: 'Peppers', price: 1.25, img: '/peppers.jpg' },
+        { name: 'Cucumbers', price: 0.99, img: '/cucumbers.jpg' }
+      ]
+const sauces = [
+        { name: 'Hot Sauce', price: 0.50, img: '/hot.jpg' },
+        { name: 'Tahini', price: 0.50, img: '/tahini.jpg' },
+        { name: 'Tzatziki', price: 0.50, img: '/tzatziki.jpg' },
+        { name: 'White Sauce', price: 0.50, img: '/white.jpg' }
+      ],
+      sides: [
+        { name: 'Dolma', price: 1.50, img: '/dolma.jpg' },
+        { name: 'Falafel', price: 1.99, img: '/falafel.jpg' },
+        { name: 'Fries', price: 2.99, img: '/fries.jpg' },
+        { name: 'White Rice', price: 4.99, img: '/white rice.webp' },
+        { name: 'Yellow Rice', price: 5.99, img: '/yellow rice.jpg' }
+      ],
+      drinks: [
+        { name: 'Coke', price: 2.50, img: '/coke.jpg' },
+        { name: 'Brisk', price: 2.50, img: '/brisk.jpg' },
+        { name: 'Dr.Pepper', price: 2.50, img: '/dr.pepper.jpg' },
+        { name: 'Fanta', price: 2.50, img: '/fanta.jpg' },
+        { name: 'Ginger Ale', price: 2.50, img: '/ginger ale.jpg' },
+        { name: 'Mug', price: 2.50, img: '/mug.jpg' },
+        { name: 'Sprite', price: 2.50, img: '/sprite.jpg' }
+      ]
+    }
+  }
+}
 
 let meal =[]
 let total= 0
