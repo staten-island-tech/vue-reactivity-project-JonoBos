@@ -1,10 +1,18 @@
 <template>
-  <div>
+  <div id="shawarmaPage">
     <h1>Jono Shawarma</h1>
 
     <div class="container"></div>
 
     <div>This one halal</div>
+
+        <ul>
+      <li v-for="(order, index) in meal" :key="index">
+        {{ order.name }} - ${{ order.price}}
+      </li>
+    </ul>
+
+    <h2>Total: ${{ total }}</h2>
 
 
     <img 
@@ -14,15 +22,6 @@
       :alt="item.name"
       @click="orderAdd(item)"
     />
-
-
-    <ul>
-      <li v-for="(order, index) in meal" :key="index">
-        {{ order.name }} - ${{ order.price}}
-      </li>
-    </ul>
-
-    <h2>Total: ${{ total }}</h2>
   </div>
 </template>
 
@@ -69,6 +68,22 @@ function orderAdd(item){
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+
+#shawarmaPage{
+    width: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
 
 </style>
